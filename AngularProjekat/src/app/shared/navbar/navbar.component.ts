@@ -1,5 +1,5 @@
 import { Service } from './../../services/services';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, Input, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -10,20 +10,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   responsiveNavbar: boolean = false;
   logedIn: boolean = false;
-  user;
+  @Output() emitter: EventEmitter<string> = new EventEmitter<string>();
+
   constructor(private router: Router, private service: Service) { }
 
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('user'));
-    if(this.user != null) {
-      this.logedIn = true;
-    }
-    else {
-      this.logedIn = false;
-    }
+    this.logedIn = this.service.isLogIn();
     if(this.logedIn) {
       document.getElementsByClassName('header')[0].classList.add('header-logedIn');
     }
+
+    this.clickOnLastUpdates();
   }
 
   navButtonClicked() {
@@ -32,8 +29,24 @@ export class NavbarComponent implements OnInit {
 
   logOut() {
     this.logedIn = false;
-    localStorage.removeItem('user');
+    this.service.logOut();
     this.router.navigate(['./main-page']);
+  }
+
+  clickOnLastUpdates() {
+    this.emitter.emit("lastUpdated");
+  } 
+
+  clickOnWriteEssay() {
+    this.emitter.emit("writeEssay");
+  }
+
+  clickOnQuestions() {
+    this.emitter.emit("questions");
+  }
+
+  clickOnFinance() {
+    this.emitter.emit("finance");
   }
 
 }

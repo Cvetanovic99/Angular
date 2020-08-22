@@ -25,7 +25,6 @@ export class LoginFormComponent implements OnInit {
 
   logIn() {
     this.service.logIn();
-    localStorage.setItem('user', JSON.stringify(this.user));
     this.router.navigate(['./profile']);
   }
 

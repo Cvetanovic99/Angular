@@ -1,0 +1,20 @@
+.main-container {
+    margin-top: 15px;
+}
+
+.header-row {
+    margin-top: 24px;
+}
+
+.header-text {
+    font-size: 24px;
+    color: #007bff;
+}
+
+.content-row {
+    padding: 3px;
+    border: 1px solid #0359b4;
+    border-radius: 15px;
+    margin: 15px;
+    padding-top: 10px;
+}

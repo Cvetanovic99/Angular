@@ -20,10 +20,10 @@
     <ul class="responsive-navbar-list">
         <li><a class="responsive-navbar-link" *ngIf="!logedIn" [routerLink]="['../main-page']">Home</a></li>
         <li><a class="responsive-navbar-link" *ngIf="!logedIn" [routerLink]="['../login']">Log in</a></li>
-        <li><a class="responsive-navbar-link" *ngIf="logedIn">Last updates</a></li>
-        <li><a class="responsive-navbar-link" *ngIf="logedIn">Write esej</a></li>
-        <li><a class="responsive-navbar-link" *ngIf="logedIn">Questions</a></li>
-        <li><a class="responsive-navbar-link" *ngIf="logedIn">Finansic</a></li>
+        <li><a class="responsive-navbar-link" *ngIf="logedIn" (click)="clickOnLastUpdates()">Last updates</a></li>
+        <li><a class="responsive-navbar-link" *ngIf="logedIn" (click)="clickOnWriteEssay()">Write essay</a></li>
+        <li><a class="responsive-navbar-link" *ngIf="logedIn" (click)="clickOnQuestions()">Questions</a></li>
+        <li><a class="responsive-navbar-link" *ngIf="logedIn" (click)="clickOnFinance()">Finance</a></li>
         <li><a class="responsive-navbar-link special" *ngIf="logedIn" (click)="logOut()"> Log out</a></li>
     </ul>
 </div>

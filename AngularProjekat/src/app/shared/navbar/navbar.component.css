@@ -7,6 +7,7 @@
     background-repeat: no-repeat;
     background-position: left;
     width: 100%;
+    z-index: 99;
 }
 
 .navbar {
@@ -36,6 +37,7 @@
 
 .header-logedIn {
     position: fixed;
+    overflow: hidden;
 }
 .nav-logo {
     background-image: url("src/assets/images/logo_img.png");
@@ -69,7 +71,7 @@
     margin: 5px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .nav-button {
         display: block;
         position: fixed;
