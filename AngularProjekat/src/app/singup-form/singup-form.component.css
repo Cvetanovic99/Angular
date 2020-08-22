@@ -1,0 +1,24 @@
+.modal-title-text {
+    color:#0892fd;
+}
+
+.input-group-text {
+    color: rgb(40, 129, 202);
+}
+
+.inner-singup-form {
+    margin-top: 3cm;
+}
+
+.modal-logo {
+    display: flex;
+    flex-direction: column;
+    margin-right: 0;
+    padding: 0;
+}
+
+@media (max-width: 600px) {
+    .inner-singup-form {
+        margin-top: 1.5cm;
+    }
+}

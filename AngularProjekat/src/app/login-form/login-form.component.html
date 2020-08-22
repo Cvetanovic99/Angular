@@ -1,0 +1,32 @@
+<div class="container-fluid login-form">
+    <div class="modal-dialog inner-login-form">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title modal-title-text">Login</h5>
+          <div class="modal-logo">
+            <span style="color:#0892fd; font-family: Bookman, Helvetica Neue, Helvetica, sans-serif; font-size:0.5cm; margin: 0;padding: 0"> Improve </span>
+            <span style="color:#3a4149; font-family: Bookman, Helvetica Neue, Helvetica, sans-serif; font-size:0.4cm; margin:0; margin-left: 1cm; padding: 0" > YOURSELF </span>
+          </div>
+        </div>
+        <div class="modal-body">
+          <p></p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" autofocus>
+          </div>
+          <div class="input-group mb-3">
+            <input type="passsword" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+          </div>
+        </div>
+        <div class="modal-footer">
+            <div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onBackButton()"><i class='fa fa-chevron-left'></i> Back</button>
+                <button type="button" class="btn btn-primary" (click)="logIn()">Login <i class='fa fa-chevron-right'></i></button>
+            </div>
+          <div><span class="modal-footer-text"><a [routerLink]="['/singup']">Create a new account-Sing up here</a></span></div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+

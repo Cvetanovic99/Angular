@@ -1,0 +1,29 @@
+<header class="header">
+    <div class="logo"> 
+        <span style="color:#0892fd; font-family: Bookman, Helvetica Neue, Helvetica, sans-serif; font-size:1cm; margin: 0;padding: 0"> Improve </span>
+        <span style="color:#3a4149; font-family: Bookman, Helvetica Neue, Helvetica, sans-serif; font-size:0.8cm; margin:0; margin-left: 1cm; padding: 0" > YOURSELF </span>
+    </div>
+    <nav class="navbar" [class.active]=responsiveNavbar>
+        <ul class="navbar-list">
+            <li><a class="navbar-link" *ngIf="!logedIn" [routerLink]="['/main-page']"> Home </a></li>
+            <li><a class="navbar-link" *ngIf="!logedIn" [routerLink]="['/login']"> Log in </a></li>
+            <li><a class="navbar-link" *ngIf="logedIn" (click)="logOut()" [routerLink]="['/main-page']"> Log out </a></li>
+        </ul>
+    </nav>
+</header>
+<div class="nav-button" (click)="navButtonClicked()">
+    <span class="button-part"></span>
+    <span class="button-part"></span>
+    <span class="button-part"></span>
+</div>
+<div class="responsiveNavbar" *ngIf="responsiveNavbar" [ngStyle]="{'margin-top': logedIn ? '100px' : '0px'}">
+    <ul class="responsive-navbar-list">
+        <li><a class="responsive-navbar-link" *ngIf="!logedIn" [routerLink]="['../main-page']">Home</a></li>
+        <li><a class="responsive-navbar-link" *ngIf="!logedIn" [routerLink]="['../login']">Log in</a></li>
+        <li><a class="responsive-navbar-link" *ngIf="logedIn">Last updates</a></li>
+        <li><a class="responsive-navbar-link" *ngIf="logedIn">Write esej</a></li>
+        <li><a class="responsive-navbar-link" *ngIf="logedIn">Questions</a></li>
+        <li><a class="responsive-navbar-link" *ngIf="logedIn">Finansic</a></li>
+        <li><a class="responsive-navbar-link special" *ngIf="logedIn" (click)="logOut()"> Log out</a></li>
+    </ul>
+</div>

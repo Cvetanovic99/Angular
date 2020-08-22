@@ -1,0 +1,39 @@
+.modal-title-text {
+    color: #0892fd;
+}
+
+.modal-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+.modal-footer button {
+    margin: 10px;
+}
+
+.modal-footer-text {
+    font-size: 10px;
+    color: #0892fd;
+}
+
+.modal-footer-text:hover {
+    text-decoration-line: underline;
+}
+
+.inner-login-form {
+    margin-top: 4cm;
+}
+
+.modal-logo {
+    display: flex;
+    flex-direction: column;
+    margin-right: 0;
+    padding: 0;
+}
+
+@media (max-width: 600px) {
+    .inner-login-form {
+        margin-top: 2cm;
+    }
+}
