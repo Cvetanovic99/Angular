@@ -5,7 +5,7 @@ export class Question {
     userId: number;
     content: string;
     description: string;
-    answers: Answer [];
+    //answers: Answer [];
     date: Date;
 
     constructor(id: number, userId: number, content: string, description: string, date: Date) {
@@ -14,7 +14,7 @@ export class Question {
         this.userId = userId;
         this.content = content;
         this.description = description;
-        this.answers = [];
+        //this.answers = [];
         this.date = date;
     }
 }

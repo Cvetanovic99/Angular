@@ -50,56 +50,199 @@
       "username": "korisnickoime"
     }
   ],
-
   "topics": [
     {
-      "id": 1,
-      "title": "Leaf Rake",
+      "id": 3,
+      "title": "Orkanski visovi",
       "userId": 1,
-      "description": "March 19, 2019",
+      "description": "Poceo sam da citam knjigu pisacu o svakom poglavlju",
+      "date": "2012-04-23"
+    },
+    {
+      "id": 4,
+      "title": "Liga sampiona",
+      "userId": 1,
+      "description": "Pisacu zapazanja o mom omiljenom timu",
+      "date": "2012-04-23"
+    },
+    {
+      "id": 5,
+      "title": "Svetsko prvenstvo",
+      "userId": 1,
+      "description": "Svetsko prvenstvo je pocelo pa cu zapisati neke beleske",
+      "date": "2012-04-23"
+    },
+    {
+      "id": 8,
+      "title": "Orkanski visovi",
+      "userId": 1,
+      "description": "Poceo sam da citam knjigu pisacu o svakom poglavlju",
+      "date": "2012-04-23"
+    },
+    {
+      "id": 9,
+      "title": "Liga sampiona",
+      "userId": 1,
+      "description": "Pisacu zapazanja o mom omiljenom timu",
+      "date": "2012-04-23"
+    },
+    {
+      "id": 10,
+      "title": "Svetsko prvenstvo",
+      "userId": 1,
+      "description": "Svetsko prvenstvo je pocelo pa cu zapisati neke beleske",
+      "date": "2012-04-23"
+    },
+    {
+      "title": "Citanje knjige",
+      "userId": 1,
+      "description": "Pisanje o knjizi",
+      "date": "2020-25-7",
+      "id": 11
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "userId": 1,
+      "content": "Content",
+      "description": "Description",
       "date": "2012-04-23T18:25:43.511Z"
     },
     {
       "id": 2,
-      "title": "Leaf Rake",
       "userId": 1,
-      "description": "March 19, 2019",
+      "content": "Content",
+      "description": "Description",
       "date": "2012-04-23T18:25:43.511Z"
     },
     {
       "id": 3,
-      "title": "Leaf Rake",
       "userId": 1,
-      "description": "March 19, 2019",
-      "date": "2012-04-23T18:25:43.511Z"
+      "content": "Content",
+      "description": "Description",
+      "date": "2012-04-23"
     },
     {
       "id": 4,
-      "title": "Leaf Rake",
       "userId": 1,
-      "description": "March 19, 2019",
-      "date": "2012-04-23T18:25:43.511Z"
+      "content": "Content",
+      "description": "Description",
+      "date": "2012-04-23"
     },
     {
       "id": 5,
-      "title": "Leaf Rake",
       "userId": 1,
-      "description": "March 19, 2019",
-      "date": "2012-04-23T18:25:43.511Z"
+      "content": "Kako se realizuje obrazac singelton?",
+      "description": "Pitanje o softverskom inzinjerstvu",
+      "date": "2012-04-23"
     },
     {
-      "title": "Title",
-      "userId": 15,
-      "description": "Description",
-      "date": "2012-04-23T18:25:43.511Z",
-      "id": 6
+      "id": 6,
+      "userId": 1,
+      "content": "Kako bi trebali da realizujemo paginaciju?",
+      "description": "Pitanje za vodju tima",
+      "date": "2012-04-23"
     },
     {
-      "title": "Title-354",
-      "userId": 15,
-      "description": "Description",
-      "date": "2012-04-23T18:25:43.511Z",
-      "id": 7
+      "id": 7,
+      "userId": 1,
+      "content": "Koji teniser je najtrofejniji",
+      "description": "Potraziti na internetu o ovom pitanju",
+      "date": "2012-04-23"
+    }
+  ],
+  "essays": [
+    {
+      "id": 1,
+      "topicId": 10,
+      "content": "Content",
+      "essayTopic": "Description",
+      "date": "2012-04-23"
+    },
+    {
+      "id": 2,
+      "topicId": 10,
+      "content": "Content",
+      "essayTopic": "Description",
+      "date": "2012-04-23"
+    },
+    {
+      "id": 3,
+      "topicId": 10,
+      "content": "Content",
+      "essayTopic": "Description",
+      "date": "2012-04-23"
+    },
+    {
+      "id": 4,
+      "topicId": 10,
+      "content": "Content",
+      "essayTopic": "Description",
+      "date": "2012-04-23"
+    },
+    {
+      "id": 5,
+      "topicId": 10,
+      "content": "Content",
+      "essayTopic": "Description",
+      "date": "2012-04-23"
+    },
+    {
+      "id": 6,
+      "topicId": 10,
+      "content": "Content",
+      "essayTopic": "Description",
+      "date": "2012-04-23"
+    },
+    {
+      "id": 7,
+      "topicId": 10,
+      "content": "Content",
+      "essayTopic": "Description",
+      "date": "2012-04-23"
+    },
+    {
+      "topicId": 10,
+      "content": "    Sada pisem esej",
+      "essayTopic": "Title 354 354354",
+      "date": "2020-24-7",
+      "id": 8
+    },
+    {
+      "topicId": 10,
+      "content": "Title za esej 354",
+      "essayTopic": "Title za esej 354",
+      "date": "2020-25-7",
+      "id": 10
+    },
+    {
+      "topicId": 9,
+      "content": "Content za dodatni",
+      "essayTopic": "Esej sad dodatni",
+      "date": "2020-25-7",
+      "id": 11
+    },
+    {
+      "topicId": 5,
+      "content": "Content za dodatni esej 354",
+      "essayTopic": "Esej sad dodatni 354",
+      "date": "2020-25-7",
+      "id": 12
+    },
+    {
+      "topicId": 5,
+      "content": " Content za dodatni esej 354354354",
+      "essayTopic": "Esej sad dodatni 354",
+      "date": "2020-25-7",
+      "id": 13
+    },
+    {
+      "topicId": 11,
+      "content": "Knjiga je veoma dobra",
+      "essayTopic": "Esej za knjigu",
+      "date": "2020-25-7",
+      "id": 14
     }
   ]
 }

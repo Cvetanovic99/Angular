@@ -18,3 +18,12 @@
     margin: 15px;
     padding-top: 10px;
 }
+
+ul li {
+    list-style-type: none;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+}

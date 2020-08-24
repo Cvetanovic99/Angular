@@ -1,3 +1,5 @@
+import { Essay } from './../models/essay';
+import { Question } from './../models/question';
 import { Topic } from './../models/topic';
 import { Injectable } from '@angular/core' 
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -52,6 +54,64 @@ export class Service {
       catchError(this.handleError)
     )
   }
+
+  deleteTopic(id: number): Observable<Topic> {
+    return this.http.delete<Topic>("http://localhost:3000/topics"+"/"+id).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  getQuestions(userId: number): Observable<Question[]> {
+    return this.http.get<Question[]>("http://localhost:3000/questions?userId=" + userId).pipe(
+      //tap(data => console.log(`All data ${data}`)),
+      catchError(this.handleError)
+    );
+  }
+
+  postQuestion(question: any): Observable<Question> {
+    return this.http.post<Question>("http://localhost:3000/questions", question).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  putQuestion(question: any, id: number): Observable<Question> {
+    return this.http.put<Question>("http://localhost:3000/questions"+"/"+id, question).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  getEssays(topicId: number): Observable<Essay []> {
+    return this.http.get<Essay []>("http://localhost:3000/essays?topicId=" + topicId).pipe(
+      //tap(data => console.log(`All data ${data}`)),
+      catchError(this.handleError)
+    );
+  }
+
+  postEssay(essay: any): Observable<Essay> {
+    return this.http.post<Essay>("http://localhost:3000/essays", essay).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  putEssay(essay: any, id: number): Observable<Essay> {
+    return this.http.put<Essay>("http://localhost:3000/essays"+"/"+id, essay).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  
+  deleteEssay(id: number): Observable<Essay> {
+    return this.http.delete<Essay>("http://localhost:3000/essays"+"/"+id).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  deleteEssays(topicId: number): Observable<Essay []> {
+    return this.http.delete<Essay []>("http://localhost:3000/essays?topicId="+topicId).pipe(
+      catchError(this.handleError)
+    )
+  }
+
 
   handleError(err: HttpErrorResponse) {
     let errorMessage = '';

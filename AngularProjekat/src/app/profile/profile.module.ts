@@ -1,9 +1,11 @@
+import { NgxPaginationModule } from 'ngx-pagination'
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './../shared/shared.module';
 import { RouterModule } from '@angular/router';
-import { ProfileComponent } from './profile.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { ProfileComponent } from './profile.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LastUpdatesContentComponent } from './last-updates-content/last-updates-content.component';
 import { WriteEsseyContentComponent } from './write-essey-content/write-essey-content.component';
@@ -28,7 +30,8 @@ import { FinansicContentComponent } from './finansic-content/finansic-content.co
       { path: 'content-last-updates', component: LastUpdatesContentComponent }
     ]),
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ]
 })
 export class ProfileModule { }

@@ -1,3 +1,4 @@
+import { Question } from './../../models/question';
 import { User } from './../../models/user';
 import { Service } from './../../services/services';
 import { Topic } from './../../models/topic';
@@ -11,7 +12,13 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 export class LastUpdatesContentComponent implements OnInit {
   @Input() lastUpdated: boolean;
   lastTopics: Topic [];
+  coupleLastTopics: Topic [];
+  lastQuestions: Question [];
+  coupleLastQuestions: Question [];
+
   user: User;
+  p: number = 1;
+
   cards = [
     {
       ime: "Ime",
@@ -33,14 +40,27 @@ export class LastUpdatesContentComponent implements OnInit {
   constructor(private service: Service) {}
 
   ngOnInit(): void {
+
     this.user = JSON.parse(localStorage.getItem('user'));
+
     this.service.getTopics(this.user.id).subscribe({
       next: topics => {
         this.lastTopics = topics;
-        //console.log(this.lastTopics);
+        this.coupleLastTopics = this.lastTopics.slice(this.lastTopics.length - 3, this.lastTopics.length);
+        //console.log(this.coupleLastTopics);
       },
       error: err => { console.log(err); }
     });
+
+    this.service.getQuestions(this.user.id).subscribe({
+      next: questions => {
+        this.lastQuestions = questions;
+        this.coupleLastQuestions = this.lastQuestions.slice(this.lastQuestions.length - 3, this.lastQuestions.length);
+      }
+    })
+
+
+
   }
 
   addTopic() {

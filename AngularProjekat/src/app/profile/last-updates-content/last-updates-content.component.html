@@ -9,14 +9,14 @@
         </div>
     </div>
     <div class="row content-row">
-        <div class="col-lg-4" *ngFor="let card of cards">
+        <div class="col-lg-4" *ngFor="let topic of coupleLastTopics">
             <div class="card">
                 <div class="card-header">
-                  {{ card.ime }}
+                  Date: {{ topic.date }}
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <h5 class="card-title"> {{ topic.title }} </h5>
+                  <p class="card-text"> {{ topic.description }}</p>
                   <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
@@ -32,14 +32,14 @@
         </div>
     </div>
     <div class="row content-row">
-        <div class="col-lg-4" *ngFor="let card of cards">
+        <div class="col-lg-4" *ngFor="let question of coupleLastQuestions">
             <div class="card">
                 <div class="card-header">
-                  {{ card.ime }}
+                  Date: {{ question.date }}
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <h5 class="card-title">{{ question.description }}</h5>
+                  <p class="card-text">{{ question.content }}</p>
                   <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
@@ -55,22 +55,18 @@
         </div>
     </div>
     <div class="row content-row">
-        <div class="col-lg-4" *ngFor="let card of lastTopics">
+        <div class="col-lg-4" *ngFor="let card of cards">
             <div class="card">
                 <div class="card-header">
-                  {{ card.title }}
+                  {{ card.ime }}
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">Special title treatment</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
     </div>
-
-    <button (click)="addTopic()">Add topic</button>
-    <button (click)="updateTopics()">Update Topics</button>
-
 </div>
 

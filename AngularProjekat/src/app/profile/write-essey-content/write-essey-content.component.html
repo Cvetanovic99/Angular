@@ -1,3 +1,167 @@
-<div class="container-fluid" *ngIf="writeEssay">Write Essey Content
-    
+<div class="container-fluid main-container" *ngIf="writeEssay">
+    <div class="row">
+        <div class="col-lg-12"> 
+            <div class="card">
+                <div class="card-header">
+                  <span class="header-text">#ALL ADDED TOPICS</span>
+                  <button type="button" class="btn btn-danger btn-new-topic" data-toggle="modal" data-target="#exampleModal">
+                    Add new topic
+                  </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add new topic</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Title: </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="..." aria-label="Username" aria-describedby="basic-addon1" #topicTitle>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Description: </span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea" #topicDescription></textarea>
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnCloseModal>Close</button>
+              <button type="button" class="btn btn-primary" (click)="addNewTopic(topicTitle.value,topicDescription.value,btnCloseModal)">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="row content-row">
+        <div class="col-lg-4" *ngFor="let topic of allTopics | paginate: { itemsPerPage: 6, currentPage: p, id: 'topics' }">
+            <div class="card">
+                <div class="card-header">
+                  Date: {{ topic.date }}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"> {{ topic.title }} </h5>
+                  <p class="card-text"> {{ topic.description }}</p>
+                  <button class="btn btn-primary" (click)="showEssays(topic)" >Show essays</button>
+                  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#deleteItemModal" (click)="deleteTopic(topic)">Delete</button>
+                  <button type="button" class="btn btn-danger btn-new-topic" data-toggle="modal" data-target="#addEssayModal" (click)="writeCurrentTopic(topic)">Add essay</button>
+                </div>
+              </div>
+        </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event" responsive= "true" id="topics"></pagination-controls>
+
+    <div class="row" *ngIf="essays && essays.length > 0">
+        <div class="col-lg-12"> 
+            <div class="card">
+                <div class="card-header">
+                  <span class="header-text">#ESSAYS FOR TOPIC: {{ currentTopic.title }}</span>
+                  <button type="button" class="btn btn-danger btn-new-topic" data-toggle="modal" data-target="#addEssayModal">
+                    Add essay
+                  </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addEssayModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="width: 100%">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add new essay</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Title</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="..." aria-label="Username" aria-describedby="basic-addon1" #essayTitle>
+              </div> 
+              <div class="input-group">
+                <textarea class="form-control textarea" rows="19" aria-label="With textarea" #essayContent></textarea>
+              </div> 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnCloseEssayModal>Close</button>
+              <button type="button" class="btn btn-primary" (click)="addNewEssay(essayTitle.value,essayContent.value,btnCloseEssayModal)">Add</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="row content-row" *ngIf=" essays && essays.length > 0 ">
+        <div class="col-lg-4" *ngFor="let essay of essays | paginate: { itemsPerPage: 6, currentPage: p2, id: 'essays' }">
+            <div class="card">
+                <div class="card-header">
+                    Date: {{ essay.date }}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"> {{ essay.essayTopic }} </h5>
+                    <p class="card-text"> {{ essay.content }}</p>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editEssayModal" (click)="editEssayFillModal(essay)">Edit</button>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#deleteItemModal" (click)="deleteEssay(essay)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <pagination-controls (pageChange)="p2 = $event" responsive= "true" id="essays" *ngIf="essays && essays.length > 0"></pagination-controls>
+
+    <div class="modal fade" id="editEssayModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="width: 100%">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Essay</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Title</span>
+                    </div>
+                    <input type="text" class="form-control" [value]="essayForEdit.essayTopic" placeholder="..." aria-label="Username" aria-describedby="basic-addon1" #essayTitleEdit>
+              </div> 
+              <div class="input-group">
+                <textarea class="form-control textarea" [value]="essayForEdit.content" rows="19" aria-label="With textarea" #essayContentEdit></textarea>
+              </div> 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnCloseEssayModalEdit>Close</button>
+              <button type="button" class="btn btn-success" (click)="editEssay(essayTitleEdit.value,essayContentEdit.value,btnCloseEssayModalEdit)">Edit</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="width: 100%">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Essay</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                Are you sure?
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnCloseModalDelete>Close</button>
+              <button type="button" class="btn btn-success" (click)="deleteForm(btnCloseModalDelete)">Delete</button>
+            </div>
+          </div>
+        </div>
+    </div>
 </div>
+
