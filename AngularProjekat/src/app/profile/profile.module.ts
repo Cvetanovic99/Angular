@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile.component';
@@ -26,7 +27,8 @@ import { FinansicContentComponent } from './finansic-content/finansic-content.co
       { path: 'profile', component: ProfileComponent },
       { path: 'content-last-updates', component: LastUpdatesContentComponent }
     ]),
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ]
 })
 export class ProfileModule { }

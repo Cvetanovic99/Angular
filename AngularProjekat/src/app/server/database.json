@@ -1,5 +1,105 @@
 {
-    "users": [
-        
-    ]
+  "users": [
+    {
+      "id": 1,
+      "name": "Ime",
+      "surname": "Prezime",
+      "password": "sifra",
+      "username": "korisnickoime"
+    },
+    {
+      "id": 2,
+      "name": "Ime",
+      "surname": "Prezime",
+      "password": "sifra",
+      "username": "korisnickoime"
+    },
+    {
+      "id": 3,
+      "name": "Ime",
+      "surname": "Prezime",
+      "password": "sifra",
+      "username": "korisnickoime"
+    },
+    {
+      "id": 4,
+      "name": "Ime",
+      "surname": "Prezime",
+      "password": "sifra",
+      "username": "korisnickoime"
+    },
+    {
+      "id": 5,
+      "name": "Ime",
+      "surname": "Prezime",
+      "password": "sifra",
+      "username": "korisnickoime"
+    },
+    {
+      "id": 6,
+      "name": "Ime",
+      "surname": "Prezime",
+      "password": "sifra",
+      "username": "korisnickoime"
+    },
+    {
+      "id": 7,
+      "name": "Ime",
+      "surname": "Prezime",
+      "password": "sifra",
+      "username": "korisnickoime"
+    }
+  ],
+
+  "topics": [
+    {
+      "id": 1,
+      "title": "Leaf Rake",
+      "userId": 1,
+      "description": "March 19, 2019",
+      "date": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 2,
+      "title": "Leaf Rake",
+      "userId": 1,
+      "description": "March 19, 2019",
+      "date": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 3,
+      "title": "Leaf Rake",
+      "userId": 1,
+      "description": "March 19, 2019",
+      "date": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 4,
+      "title": "Leaf Rake",
+      "userId": 1,
+      "description": "March 19, 2019",
+      "date": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 5,
+      "title": "Leaf Rake",
+      "userId": 1,
+      "description": "March 19, 2019",
+      "date": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "title": "Title",
+      "userId": 15,
+      "description": "Description",
+      "date": "2012-04-23T18:25:43.511Z",
+      "id": 6
+    },
+    {
+      "title": "Title-354",
+      "userId": 15,
+      "description": "Description",
+      "date": "2012-04-23T18:25:43.511Z",
+      "id": 7
+    }
+  ]
 }

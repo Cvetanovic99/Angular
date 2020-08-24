@@ -9,34 +9,10 @@
         </div>
     </div>
     <div class="row content-row">
-        <div class="col-lg-4">
+        <div class="col-lg-4" *ngFor="let card of cards">
             <div class="card">
                 <div class="card-header">
-                  Featured
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-header">
-                  Featured
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-header">
-                  Featured
+                  {{ card.ime }}
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">Special title treatment</h5>
@@ -56,10 +32,10 @@
         </div>
     </div>
     <div class="row content-row">
-        <div class="col-lg-4">
+        <div class="col-lg-4" *ngFor="let card of cards">
             <div class="card">
                 <div class="card-header">
-                  Featured
+                  {{ card.ime }}
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">Special title treatment</h5>
@@ -67,30 +43,6 @@
                   <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-header">
-                  Featured
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-header">
-                  Featured
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
         </div>
     </div>
     <div class="row header-row">
@@ -103,34 +55,10 @@
         </div>
     </div>
     <div class="row content-row">
-        <div class="col-lg-4">
+        <div class="col-lg-4" *ngFor="let card of lastTopics">
             <div class="card">
                 <div class="card-header">
-                  Featured
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-header">
-                  Featured
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-header">
-                  Featured
+                  {{ card.title }}
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">Special title treatment</h5>
@@ -140,6 +68,9 @@
             </div>
         </div>
     </div>
+
+    <button (click)="addTopic()">Add topic</button>
+    <button (click)="updateTopics()">Update Topics</button>
 
 </div>
 

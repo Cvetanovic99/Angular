@@ -10,7 +10,6 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { SliderComponent } from './main-page/slider/slider.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SingupFormComponent } from './singup-form/singup-form.component';
-import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
