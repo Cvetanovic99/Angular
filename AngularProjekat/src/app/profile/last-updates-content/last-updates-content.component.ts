@@ -45,21 +45,33 @@ export class LastUpdatesContentComponent implements OnInit {
 
     this.service.getTopics(this.user.id).subscribe({
       next: topics => {
-        this.lastTopics = topics;
-        this.coupleLastTopics = this.lastTopics.slice(this.lastTopics.length - 3, this.lastTopics.length);
-        //console.log(this.coupleLastTopics);
+
+        this.lastTopics = topics.reverse();
+
+        if(this.lastTopics.length > 3) {
+          this.coupleLastTopics = this.lastTopics.slice(0, 3);
+        }
+        else {
+          this.coupleLastTopics = this.lastTopics;
+        }
       },
       error: err => { console.log(err); }
     });
 
     this.service.getQuestions(this.user.id).subscribe({
       next: questions => {
-        this.lastQuestions = questions;
-        this.coupleLastQuestions = this.lastQuestions.slice(this.lastQuestions.length - 3, this.lastQuestions.length);
-      }
+
+        this.lastQuestions = questions.reverse();
+        
+        if(this.lastQuestions.length > 3) { 
+          this.coupleLastQuestions = this.lastQuestions.slice(0,3);
+        }
+        else {
+          this.coupleLastQuestions = this.lastQuestions;
+        }
+      },
+        error: err => { console.log(err); }
     })
-
-
 
   }
 

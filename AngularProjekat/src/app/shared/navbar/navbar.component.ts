@@ -49,4 +49,7 @@ export class NavbarComponent implements OnInit {
     this.emitter.emit("finance");
   }
 
+  locationReload() {
+    location.reload();
+  }
 }

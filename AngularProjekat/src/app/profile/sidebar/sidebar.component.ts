@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 
@@ -8,7 +9,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   @Output() emitter: EventEmitter<string> = new EventEmitter<string>();
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.clickOnLastUpdates();
@@ -28,6 +29,10 @@ export class SidebarComponent implements OnInit {
 
   clickOnFinance() {
     this.emitter.emit("finance");
+  }
+
+  reloadLocation() {
+    location.reload();
   }
 
 }

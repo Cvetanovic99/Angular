@@ -8,37 +8,54 @@
             <span style="color:#3a4149; font-family: Bookman, Helvetica Neue, Helvetica, sans-serif; font-size:0.4cm; margin:0; margin-left: 1cm; padding: 0" > YOURSELF </span>
           </div>
         </div>
-        <div class="modal-body">
-          <p></p>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Name</span>
-            </div>
-            <input type="text" class="form-control" placeholder=". . ." aria-label="Username" aria-describedby="basic-addon1" autofocus>
+        <form #form="ngForm">
+          <div class="modal-body">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Name</span>
+                </div>
+                <input required ngModel type="text" minlength="3" maxlength="15" name="name" class="form-control" placeholder=". . ." aria-label="Username" aria-describedby="basic-addon1" autofocus ngModel #name="ngModel">
+              </div>
+              <div class="alert alert-danger" *ngIf="!name.valid && name.touched">
+                <div *ngIf="name.errors.required">First Name is required</div>
+                <div *ngIf="name.errors.minlength">Min length is {{ name.errors.minlength.requiredLength }} </div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Surname</span>
+                </div>
+                <input required type="text" minlength="3" maxlength="15" ngModel name="surname" #surname="ngModel" class="form-control" placeholder=". . ." aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <div class="alert alert-danger" *ngIf="!surname.valid && surname.touched">
+                <div *ngIf="surname.errors.required">Surname is required</div>
+                <div *ngIf="surname.errors.minlength">Min length is {{ surname.errors.minlength.requiredLength }} </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" ngModel name="username" minlength="3" maxlength="15" #username="ngModel" required placeholder=". . ." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">Username</span>
+                </div>
+              </div>
+              <div class="alert alert-danger" *ngIf="!username.valid && username.touched">
+                <div *ngIf="username.errors.required">Username is required</div>
+                <div *ngIf="username.errors.minlength">Min length is {{ username.errors.minlength.requiredLength }} </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="password" class="form-control" ngModel name="password" #password="ngModel" minlength="3" maxlength="15" placeholder=". . ." required aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">Password</span>
+                </div>
+              </div>
+              <div class="alert alert-danger" *ngIf="!password.valid && password.touched">
+                <div *ngIf="password.errors.required">Password is required</div>
+                <div *ngIf="password.errors.minlength">Min length is {{ password.errors.minlength.requiredLength }} </div>
+              </div>
           </div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Surname</span>
-            </div>
-            <input type="text" class="form-control" placeholder=". . ." aria-label="Username" aria-describedby="basic-addon1">
+          <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onBackButton()"><i class='fa fa-chevron-left'></i> Back</button>
+                  <button type="button" class="btn btn-primary" [disabled]="!form.valid" (click)="singUp(form.value)">Sing Up <i class='fa fa-chevron-right'></i></button>
           </div>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder=". . ." aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <span class="input-group-text" id="basic-addon2">Username</span>
-            </div>
-          </div>
-          <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder=". . ." aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <span class="input-group-text" id="basic-addon2">Password</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onBackButton()"><i class='fa fa-chevron-left'></i> Back</button>
-                <button type="button" class="btn btn-primary">Sing Up <i class='fa fa-chevron-right'></i></button>
-        </div>
+        </form>
       </div>
     </div>
 </div>

@@ -43,7 +43,7 @@
       </div>
 
       <div class="row content-row">
-        <div class="col-lg-4" *ngFor="let question of questionsFromStore | async | paginate: { itemsPerPage: 6, currentPage: p, id: 'questions' }">
+        <div class="col-lg-4" *ngFor="let question of questionsFromStore | async | paginate: { itemsPerPage: 6, currentPage: p, id: 'questions' }" >
             <div class="card">
                 <div class="card-header">
                   Date: {{ question.date }}
@@ -57,7 +57,7 @@
                 </div>
               </div>
         </div>
-    </div>
+      </div>
     <pagination-controls (pageChange)="p = $event" responsive= "true" id="questions"></pagination-controls>
 
     <div class="row" *ngIf="answers && answers.length > 0">

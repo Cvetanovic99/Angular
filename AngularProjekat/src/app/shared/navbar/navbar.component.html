@@ -20,7 +20,7 @@
     <ul class="responsive-navbar-list">
         <li><a class="responsive-navbar-link" *ngIf="!logedIn" [routerLink]="['../main-page']">Home</a></li>
         <li><a class="responsive-navbar-link" *ngIf="!logedIn" [routerLink]="['../login']">Log in</a></li>
-        <li><a class="responsive-navbar-link" *ngIf="logedIn" (click)="clickOnLastUpdates()">Last updates</a></li>
+        <li><a class="responsive-navbar-link" *ngIf="logedIn" (click)="clickOnLastUpdates()" (click)="locationReload()">Last updates</a></li>
         <li><a class="responsive-navbar-link" *ngIf="logedIn" (click)="clickOnWriteEssay()">Write essay</a></li>
         <li><a class="responsive-navbar-link" *ngIf="logedIn" (click)="clickOnQuestions()">Questions</a></li>
         <li><a class="responsive-navbar-link" *ngIf="logedIn" (click)="clickOnFinance()">Finance</a></li>

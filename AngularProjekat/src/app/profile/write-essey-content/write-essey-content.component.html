@@ -56,7 +56,10 @@
                   <button type="button" class="btn btn-danger btn-new-topic" data-toggle="modal" data-target="#addEssayModal" (click)="writeCurrentTopic(topic)">Add essay</button>
                 </div>
               </div>
-        </div>
+          </div>
+          <div class="alert alert-danger col-lg-12" role="alert" *ngIf="!allTopics || allTopics.length == 0">
+            <h2 style="text-align:center"> #No Added Topics </h2>
+          </div>
     </div>
     <pagination-controls (pageChange)="p = $event" responsive= "true" id="topics"></pagination-controls>
 

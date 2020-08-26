@@ -1,3 +1,5 @@
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from './../models/user';
 import { Answer } from './../models/answer';
 import { Essay } from './../models/essay';
 import { Question } from './../models/question';
@@ -6,13 +8,12 @@ import { Injectable } from '@angular/core'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
-import { User } from '../models/user';
 @Injectable()
 
 export class Service {
     users: User [];
     user: User;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
 
     this.getUsers().subscribe({
       next: users => { this.users = users; },
@@ -22,8 +23,11 @@ export class Service {
   }
 
   isLogIn(): boolean{
+
     this.user = JSON.parse(localStorage.getItem('user'));
+
     if(this.user != null)
+    
       return true;
     else 
       return false;
@@ -45,12 +49,41 @@ export class Service {
     localStorage.removeItem('user');
   }
 
+  singUp(data) {
+
+    let newUser = {
+      id: undefined,
+      name: data.name,
+      surname: data.surname,
+      password: data.password,
+      username: data.username 
+    }
+
+    this.postUser(newUser).subscribe(response => {
+      console.log(response);
+      this.getUsers().subscribe({
+        next: users => {
+          this.users = users;
+          this.router.navigate(['../main-page']); 
+        },
+        error: err => console.log(err)     
+      });
+    })
+  }
+
 //Service for user
   getUsers(): Observable<User []> {
     return this.http.get<User []>("http://localhost:3000/users").pipe(
       catchError(this.handleError)
     )
   }
+
+  postUser(user: User): Observable<User> {
+    return this.http.post<User>("http://localhost:3000/users", user).pipe(
+      catchError(this.handleError)
+    )
+  }
+
 //Service for topics
   getTopics(userId: number): Observable<Topic[]> {
     return this.http.get<Topic[]>("http://localhost:3000/topics?userId=" + userId).pipe(
