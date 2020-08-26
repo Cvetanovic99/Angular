@@ -1,3 +1,4 @@
+import { Answer } from './../models/answer';
 import { Essay } from './../models/essay';
 import { Question } from './../models/question';
 import { Topic } from './../models/topic';
@@ -35,7 +36,7 @@ export class Service {
   logOut() {
     localStorage.removeItem('user');
   }
-
+//Service for topics
   getTopics(userId: number): Observable<Topic[]> {
     return this.http.get<Topic[]>("http://localhost:3000/topics?userId=" + userId).pipe(
       //tap(data => console.log(`All data ${data}`)),
@@ -61,6 +62,7 @@ export class Service {
     )
   }
 
+//Service for questions
   getQuestions(userId: number): Observable<Question[]> {
     return this.http.get<Question[]>("http://localhost:3000/questions?userId=" + userId).pipe(
       //tap(data => console.log(`All data ${data}`)),
@@ -74,12 +76,19 @@ export class Service {
     )
   }
 
-  putQuestion(question: any, id: number): Observable<Question> {
+  putQuestion(question: Partial<Question>, id: number): Observable<Question> {
     return this.http.put<Question>("http://localhost:3000/questions"+"/"+id, question).pipe(
       catchError(this.handleError)
     )
   }
 
+  deleteQuestion(id: number): Observable<Question> {
+    return this.http.delete<Question>("http://localhost:3000/questions"+"/"+id).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+//Service for essays
   getEssays(topicId: number): Observable<Essay []> {
     return this.http.get<Essay []>("http://localhost:3000/essays?topicId=" + topicId).pipe(
       //tap(data => console.log(`All data ${data}`)),
@@ -99,7 +108,6 @@ export class Service {
     )
   }
 
-  
   deleteEssay(id: number): Observable<Essay> {
     return this.http.delete<Essay>("http://localhost:3000/essays"+"/"+id).pipe(
       catchError(this.handleError)
@@ -112,6 +120,37 @@ export class Service {
     )
   }
 
+//Service for answers
+  getAnswers(questionId: number): Observable<Answer []> {
+    return this.http.get<Answer []>("http://localhost:3000/answers?questionId=" + questionId).pipe(
+      //tap(data => console.log(`All data ${data}`)),
+      catchError(this.handleError)
+    );
+  }
+
+  postAnswer(answer: any): Observable<Answer> {
+    return this.http.post<Answer>("http://localhost:3000/answers", answer).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  putAnswer(answer: any, id: number): Observable<Answer> {
+    return this.http.put<Answer>("http://localhost:3000/answers"+"/"+id, answer).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  deleteAnswer(id: number): Observable<Answer> {
+    return this.http.delete<Answer>("http://localhost:3000/answers"+"/"+id).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  deleteAnswers(questionId: number): Observable<Answer []> {
+    return this.http.delete<Answer []>("http://localhost:3000/answers?questionId=" + questionId).pipe(
+      catchError(this.handleError)
+    )
+  }
 
   handleError(err: HttpErrorResponse) {
     let errorMessage = '';

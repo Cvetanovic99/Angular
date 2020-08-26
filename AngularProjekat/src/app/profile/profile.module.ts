@@ -1,3 +1,4 @@
+import { ReverseArrayPipe } from './../shared/reverse-array.pipe';
 import { NgxPaginationModule } from 'ngx-pagination'
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './../shared/shared.module';
@@ -11,6 +12,10 @@ import { LastUpdatesContentComponent } from './last-updates-content/last-updates
 import { WriteEsseyContentComponent } from './write-essey-content/write-essey-content.component';
 import { QuestionsContentComponent } from './questions-content/questions-content.component';
 import { FinansicContentComponent } from './finansic-content/finansic-content.component';
+import { StoreModule } from '@ngrx/store';
+import * as fromState from './store';
+import { EffectsModule } from '@ngrx/effects';
+import { QuestionEffects } from './store/question.effects';
 
 
 
@@ -31,7 +36,12 @@ import { FinansicContentComponent } from './finansic-content/finansic-content.co
     ]),
     SharedModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    StoreModule.forFeature(fromState.stateFeatureKey, fromState.reducers, { metaReducers: fromState.metaReducers }),
+    EffectsModule.forFeature([QuestionEffects])
+  ],
+  providers: [
+    ReverseArrayPipe
   ]
 })
 export class ProfileModule { }

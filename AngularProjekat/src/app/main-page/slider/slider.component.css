@@ -138,3 +138,25 @@ ul.footer-links li i {
 .btn-joinus:hover{
     background-color:#007bff;
 }
+
+.slide-text-up {
+    color: #2f353b;
+    margin-right: 60%;
+    font-size: 30px;
+    margin-bottom: 3%;
+    padding: 0px;
+}
+
+.slide-text-midle {
+    color: #007bff;
+    margin-right: 60%;
+    font-size: 24px;
+    margin-bottom: 3%;
+}
+
+.slide-text-down {
+    color: #637b96;
+    margin-right: 60%;
+    font-size: 20px;
+    margin-bottom: 19%;
+}

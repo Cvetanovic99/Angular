@@ -51,7 +51,7 @@
                 <div class="card-body">
                   <h5 class="card-title"> {{ topic.title }} </h5>
                   <p class="card-text"> {{ topic.description }}</p>
-                  <button class="btn btn-primary" (click)="showEssays(topic)" >Show essays</button>
+                  <button class="btn btn-primary" (click)="showEssays(topic)" >Essays</button>
                   <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#deleteItemModal" (click)="deleteTopic(topic)">Delete</button>
                   <button type="button" class="btn btn-danger btn-new-topic" data-toggle="modal" data-target="#addEssayModal" (click)="writeCurrentTopic(topic)">Add essay</button>
                 </div>
@@ -149,7 +149,7 @@
         <div class="modal-dialog">
           <div class="modal-content" style="width: 100%">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Edit Essay</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Delete item</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>

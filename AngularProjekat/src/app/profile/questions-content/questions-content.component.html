@@ -1,1 +1,153 @@
-<div *ngIf="questions">Questions Content :)</div>
+<div class="container-fluid main-container"*ngIf="questions">
+    <div class="row">
+        <div class="col-lg-12"> 
+            <div class="card">
+                <div class="card-header">
+                  <span class="header-text">#ALL ADDED QUESTIONS</span>
+                  <button type="button" class="btn btn-danger btn-new-question" data-toggle="modal" data-target="#addQuestionModal">
+                    Add new Question
+                  </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addQuestionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add new Question</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Description: </span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea" #questionDescription></textarea>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Content: </span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea" #questionContent></textarea>
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnCloseModal>Close</button>
+              <button type="button" class="btn btn-primary" (click)="addNewQuestion(questionDescription.value,questionContent.value,btnCloseModal)">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row content-row">
+        <div class="col-lg-4" *ngFor="let question of questionsFromStore | async | paginate: { itemsPerPage: 6, currentPage: p, id: 'questions' }">
+            <div class="card">
+                <div class="card-header">
+                  Date: {{ question.date }}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"> {{ question.description }} </h5>
+                  <p class="card-text"> {{ question.content }}</p>
+                  <button class="btn btn-primary" (click)="showAnswers(question)">Answers</button>
+                  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#deleteItemModal" (click)="writeDeleteQuestion(question)">Delete</button>
+                  <button type="button" class="btn btn-danger btn-new-topic" data-toggle="modal" data-target="#addAnswerModal" (click)="writeCurrentQuestion(question)">Add answer</button>
+                </div>
+              </div>
+        </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event" responsive= "true" id="questions"></pagination-controls>
+
+    <div class="row" *ngIf="answers && answers.length > 0">
+        <div class="col-lg-12"> 
+            <div class="card">
+                <div class="card-header">
+                  <span class="header-text">#ANSWERS FOR QUESTION: {{ currentQuestion.description }}</span>
+                  <button type="button" class="btn btn-danger btn-new-topic" data-toggle="modal" data-target="#addAnswerModal">
+                    Add answer
+                  </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addAnswerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="width: 100%">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add new answer</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <label>Content:</label>
+              <div class="input-group">
+                <textarea class="form-control textarea" value="" rows="" aria-label="With textarea" #answerContent></textarea>
+              </div> 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnCloseAddAnswerModal>Close</button>
+              <button type="button" class="btn btn-primary" (click)="addAnswer(answerContent.value, btnCloseAddAnswerModal)">Add</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="row content-row" *ngIf=" answers && answers.length > 0 ">
+        <div class="col-lg-4" *ngFor="let answer of answers | paginate: { itemsPerPage: 6, currentPage: panswers, id: 'answers' }">
+            <div class="card">
+                <div class="card-header">
+                    Date: {{ answer.date }}
+                </div>
+                <div class="card-body">
+                    <p class="card-text"> {{ answer.content }}</p>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editAnswerModal" (click)="writeEditAnswer(answer)">Edit</button>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#deleteItemModal" (click)="writeDeleteAnswer(answer)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <pagination-controls (pageChange)="panswers = $event" responsive= "true" id="answers" *ngIf="answers && answers.length > 0"></pagination-controls>
+    <div class="modal fade" id="editAnswerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="width: 100%">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Essay</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="input-group">
+                <textarea class="form-control textarea" [value]="answerToEdit.content" aria-label="With textarea" #answerContentEdit></textarea>
+              </div> 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnCloseAnswerModalEdit>Close</button>
+              <button type="button" class="btn btn-success" (click)="editAnswer(answerContentEdit.value,btnCloseAnswerModalEdit)">Edit</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="width: 100%">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Delete item</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                Are you sure?
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnCloseDeleteItemModal (click)="itemsToDeleteNull()">Close</button>
+              <button type="button" class="btn btn-success" (click)="deleteItem(btnCloseDeleteItemModal)">Delete</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

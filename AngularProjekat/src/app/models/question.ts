@@ -6,9 +6,9 @@ export class Question {
     content: string;
     description: string;
     //answers: Answer [];
-    date: Date;
+    date: string;
 
-    constructor(id: number, userId: number, content: string, description: string, date: Date) {
+    constructor(id: number, userId: number, content: string, description: string, date: string) {
 
         this.id = id;
         this.userId = userId;

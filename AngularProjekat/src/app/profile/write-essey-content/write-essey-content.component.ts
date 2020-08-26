@@ -1,9 +1,8 @@
 import { Essay } from './../../models/essay';
 import { Service } from './../../services/services';
-import { Component, OnInit, Input, Output, resolveForwardRef } from '@angular/core';
+import { Component, OnInit, Input, Output} from '@angular/core';
 import { Topic } from 'src/app/models/topic';
 import { User } from 'src/app/models/user';
-import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'write-essey-content',
@@ -28,8 +27,8 @@ export class WriteEsseyContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.essayForEdit.essayTopic = "";
-    this.essayForEdit.content = "";
+    //this.essayForEdit.essayTopic = "";
+    //this.essayForEdit.content = "";
     this.user = JSON.parse(localStorage.getItem('user'));
     this.service.getTopics(this.user.id).subscribe({
       next: topics => {
@@ -89,10 +88,10 @@ export class WriteEsseyContentComponent implements OnInit {
           },
           error: err => { console.log(err); }
         })
-        //this.essays.splice(0, 0, response);
+        
       }
     );
-    console.log(newTitle + newContent);
+  
     btnCloseModal.click();
   }
 
@@ -152,12 +151,13 @@ export class WriteEsseyContentComponent implements OnInit {
                 },
                 error: err => { console.log(err); }
               });
-              
-              this.essays = null;
+
             },
             error: err => { console.log(err); }
           });
         });
+
+        this.essays = null;
     } 
     else if(this.essayToDelete != null){
       this.service.deleteEssay(this.essayToDelete.id).subscribe(

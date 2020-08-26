@@ -103,34 +103,6 @@
   ],
   "questions": [
     {
-      "id": 1,
-      "userId": 1,
-      "content": "Content",
-      "description": "Description",
-      "date": "2012-04-23T18:25:43.511Z"
-    },
-    {
-      "id": 2,
-      "userId": 1,
-      "content": "Content",
-      "description": "Description",
-      "date": "2012-04-23T18:25:43.511Z"
-    },
-    {
-      "id": 3,
-      "userId": 1,
-      "content": "Content",
-      "description": "Description",
-      "date": "2012-04-23"
-    },
-    {
-      "id": 4,
-      "userId": 1,
-      "content": "Content",
-      "description": "Description",
-      "date": "2012-04-23"
-    },
-    {
       "id": 5,
       "userId": 1,
       "content": "Kako se realizuje obrazac singelton?",
@@ -150,6 +122,48 @@
       "content": "Koji teniser je najtrofejniji",
       "description": "Potraziti na internetu o ovom pitanju",
       "date": "2012-04-23"
+    },
+    {
+      "userId": 1,
+      "content": "Kakav je bio film 10 000 godina pre nove ere?",
+      "description": "Pitanje o filmovima",
+      "date": "2020-26-7",
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "content": "kakv je bio taj dogadjaj?",
+      "description": "Pitanje o nekim dogadjajima",
+      "date": "2020-26-7",
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "content": "kakv je bio taj dogadjaj?",
+      "description": "Pitanje o nekim dogadjajima",
+      "date": "2020-26-7",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "content": "kakv je bio taj dogadjaj?",
+      "description": "Pitanje o nekim dogadjajima",
+      "date": "2020-26-7",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "content": "kakv je bio taj dogadjaj?",
+      "description": "Pitanje o nekim dogadjajima",
+      "date": "2020-26-7",
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "content": "kakv je bio taj dogadjaj?",
+      "description": "Pitanje o nekim dogadjajima",
+      "date": "2020-26-7",
+      "id": 13
     }
   ],
   "essays": [
@@ -243,6 +257,75 @@
       "essayTopic": "Esej za knjigu",
       "date": "2020-25-7",
       "id": 14
+    },
+    {
+      "topicId": 9,
+      "content": "Esej",
+      "essayTopic": "Esej za svoj tim",
+      "date": "2020-26-7",
+      "id": 15
+    }
+  ],
+  "answers": [
+    {
+      "questionId": 5,
+      "content": "Dodat je odgovor za pitanje.",
+      "date": "2020-26-7",
+      "id": 9
+    },
+    {
+      "questionId": 5,
+      "content": "Dodat je jos jedan odgovor za pitanje.",
+      "date": "2020-26-7",
+      "id": 10
+    },
+    {
+      "questionId": 6,
+      "content": "Dodat je odgovor.",
+      "date": "2020-26-7",
+      "id": 13
+    },
+    {
+      "questionId": 6,
+      "content": "Dodajemo odgovor",
+      "date": "2020-26-7",
+      "id": 14
+    },
+    {
+      "questionId": 12,
+      "content": "Dodajemo odgovor",
+      "date": "2020-26-7",
+      "id": 15
+    },
+    {
+      "questionId": 5,
+      "content": "Dodajemo odgovor",
+      "date": "2020-26-7",
+      "id": 16
+    },
+    {
+      "questionId": 5,
+      "content": "Dodajemo odgovor",
+      "date": "2020-26-7",
+      "id": 17
+    },
+    {
+      "questionId": 5,
+      "content": "Dodajemo odgovor",
+      "date": "2020-26-7",
+      "id": 18
+    },
+    {
+      "questionId": 5,
+      "content": "Dodajemo odgovor",
+      "date": "2020-26-7",
+      "id": 19
+    },
+    {
+      "questionId": 5,
+      "content": "Dodajemo odgovor",
+      "date": "2020-26-7",
+      "id": 20
     }
   ]
 }

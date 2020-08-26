@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SliderComponent implements OnInit {
   topButton: boolean = false;
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   onScroll = (event): void => {
     if(document.body.scrollTop > 30 || document.documentElement.scrollTop > 30){
@@ -24,10 +26,14 @@ export class SliderComponent implements OnInit {
   ngOnDestroy() {
     window.removeEventListener('scroll', this.onScroll, true);
   }
+
   scrollToTop() {
     // document.body.scrollTop = 0;
     // document.documentElement.scrollTop = 0;
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
+  singUpForm() {
+    this.router.navigate(['./singup'])
+  }
 }

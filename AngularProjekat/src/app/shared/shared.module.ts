@@ -4,19 +4,22 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReverseArrayPipe } from './reverse-array.pipe';
 
 
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    ReverseArrayPipe
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
   exports: [ 
-    NavbarComponent
+    NavbarComponent,
+    ReverseArrayPipe
   ],
   providers: [
     Service

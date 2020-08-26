@@ -10,6 +10,11 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { SliderComponent } from './main-page/slider/slider.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SingupFormComponent } from './singup-form/singup-form.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,13 @@ import { SingupFormComponent } from './singup-form/singup-form.component';
       { path: '**', redirectTo: 'main-page', pathMatch: 'full' }
     ]),
     ProfileModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([])
   ],
   providers: [
     Service
