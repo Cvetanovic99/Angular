@@ -11,19 +11,22 @@
         <div class="modal-body">
           <p></p>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" autofocus>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" autofocus #username (click)="clickOnInput()">
           </div>
           <div class="input-group mb-3">
-            <input type="passsword" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+            <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" #password (click)="clickOnInput()">
           </div>
         </div>
         <div class="modal-footer">
             <div>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onBackButton()"><i class='fa fa-chevron-left'></i> Back</button>
-                <button type="button" class="btn btn-primary" (click)="logIn()">Login <i class='fa fa-chevron-right'></i></button>
+                <button type="button" class="btn btn-primary" (click)="logIn(username.value, password.value)">Login <i class='fa fa-chevron-right'></i></button>
             </div>
           <div><span class="modal-footer-text"><a [routerLink]="['/singup']">Create a new account-Sing up here</a></span></div>
         </div>
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="!validData">
+        Password or username is not valid
       </div>
     </div>
 </div>

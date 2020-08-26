@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Ime",
-      "surname": "Prezime",
-      "password": "sifra",
-      "username": "korisnickoime"
-    },
-    {
       "id": 2,
       "name": "Ime",
       "surname": "Prezime",
@@ -44,6 +37,34 @@
     },
     {
       "id": 7,
+      "name": "Ime",
+      "surname": "Prezime",
+      "password": "sifra",
+      "username": "korisnickoime"
+    },
+    {
+      "id": 1,
+      "name": "Ime",
+      "surname": "Prezime",
+      "password": "sifra354",
+      "username": "korisnickoime"
+    },
+    {
+      "id": 8,
+      "name": "Ime",
+      "surname": "Prezime",
+      "password": "sifra",
+      "username": "korisnickoime"
+    },
+    {
+      "id": 9,
+      "name": "Ime",
+      "surname": "Prezime",
+      "password": "sifra",
+      "username": "korisnickoime"
+    },
+    {
+      "id": 10,
       "name": "Ime",
       "surname": "Prezime",
       "password": "sifra",

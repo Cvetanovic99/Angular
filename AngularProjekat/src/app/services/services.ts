@@ -6,19 +6,19 @@ import { Injectable } from '@angular/core'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
+import { User } from '../models/user';
 @Injectable()
 
 export class Service {
-    user;
-    user354 = {
-        id: 1,
-        name: "Ime",
-        surname: "Prezime",
-        password: "Sifra",
-        username: "Username"
-    }    
+    users: User [];
+    user: User;
   constructor(private http: HttpClient) {
-     
+
+    this.getUsers().subscribe({
+      next: users => { this.users = users; },
+      error: err => console.log(err)     
+    });
+
   }
 
   isLogIn(): boolean{
@@ -29,12 +29,27 @@ export class Service {
       return false;
   }
 
-  logIn() {
-    localStorage.setItem('user', JSON.stringify(this.user354));
+  logIn(username: string, password: string) {
+
+        this.users.forEach(user => {
+          if(user.username === username){
+            if(user.password === password){
+              console.log(user);
+              localStorage.setItem('user', JSON.stringify(user));
+            }
+          }
+        });
   }
 
   logOut() {
     localStorage.removeItem('user');
+  }
+
+//Service for user
+  getUsers(): Observable<User []> {
+    return this.http.get<User []>("http://localhost:3000/users").pipe(
+      catchError(this.handleError)
+    )
   }
 //Service for topics
   getTopics(userId: number): Observable<Topic[]> {
