@@ -16,6 +16,8 @@ import { StoreModule } from '@ngrx/store';
 import * as fromState from './store';
 import { EffectsModule } from '@ngrx/effects';
 import { QuestionEffects } from './store/question.effects';
+import * as fromFinansic from './store/finansic-store/finansic.reducer';
+import { FinansicEffects } from './store/finansic-store/finansic.effects';
 
 
 
@@ -38,7 +40,8 @@ import { QuestionEffects } from './store/question.effects';
     HttpClientModule,
     NgxPaginationModule,
     StoreModule.forFeature(fromState.stateFeatureKey, fromState.reducers, { metaReducers: fromState.metaReducers }),
-    EffectsModule.forFeature([QuestionEffects])
+    EffectsModule.forFeature([QuestionEffects, FinansicEffects]),
+    StoreModule.forFeature(fromFinansic.finansicsFeatureKey, fromFinansic.reducer)
   ],
   providers: [
     ReverseArrayPipe

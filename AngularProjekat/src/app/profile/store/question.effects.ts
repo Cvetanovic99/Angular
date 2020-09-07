@@ -10,11 +10,10 @@ import { Observable, of } from 'rxjs';
 
 @Injectable()
 export class QuestionEffects {
-  user: User;
 
   loadQuestions$ = createEffect(() => this.actions$.pipe(
     ofType(fromActions.loadQuestionss),
-    mergeMap(() => this.service.getQuestions(this.user.id).pipe(
+    mergeMap((action) => this.service.getQuestions(action.userId).pipe(
         map(questions => fromActions.loadQuestionssSuccess({questions: questions})),
         catchError(error => of(fromActions.loadQuestionssFailure({error: error})))
     ))
@@ -44,7 +43,6 @@ export class QuestionEffects {
   ))
 
   constructor(private actions$: Actions, private service: Service) {
-    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
 }

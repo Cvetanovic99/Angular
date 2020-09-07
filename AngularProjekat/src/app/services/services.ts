@@ -1,3 +1,4 @@
+import { Finansic } from './../models/finansic';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from './../models/user';
 import { Answer } from './../models/answer';
@@ -199,6 +200,29 @@ export class Service {
       catchError(this.handleError)
     )
   }
+
+//Service for finansics
+  getFinansics(userId: number): Observable<Finansic []> {
+    return this.http.get<Finansic []>("http://localhost:3000/finansics?userId=" + userId).pipe(
+      //tap(data => console.log(`All data ${data}`)),
+      catchError(this.handleError)
+    );
+  }
+
+  postFinansic(finansic: any): Observable<Finansic> {
+    return this.http.post<Finansic>("http://localhost:3000/finansics", finansic).pipe(
+      //tap(data => console.log(`All data ${data}`)),
+      catchError(this.handleError)
+    );
+  }
+
+  deleteFinansic(id: number): Observable<Finansic> {
+    return this.http.delete<Finansic>("http://localhost:3000/finansics"+"/"+id).pipe(
+      //tap(data => console.log(`All data ${data}`)),
+      catchError(this.handleError)
+    );
+  }
+
 
   handleError(err: HttpErrorResponse) {
     let errorMessage = '';

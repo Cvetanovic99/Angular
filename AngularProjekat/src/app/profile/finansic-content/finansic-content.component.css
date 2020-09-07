@@ -1,0 +1,96 @@
+.main-container {
+    margin-top: 15px;
+}
+
+.header-text {
+    font-size: 24px;
+    color: #007bff;
+}
+
+.card-text {
+    text-align: center;
+    font-size: 45px;
+}
+
+.card-icon {
+    font-size:70px;
+    color: #e9b60f;
+    text-align: center;
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+}
+
+.income-input {
+    border: 2px solid rgb(62, 226, 62);
+}
+
+.spent-input {
+    border: 2px solid rgb(235, 24, 24)
+}
+
+.input-row {
+    margin-top: 15px;
+}
+
+.btn-outline-success {
+    width: 60%;
+}
+
+.div-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.get-statistics-row {
+    margin-top: 1.5cm;
+}
+
+.text-show-statistics-col {
+    display: flex;
+    justify-content: center;
+}
+.text-show-statistics-p {
+    font-size: 24px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-outline-info {
+    width: 60%;
+}
+
+.table-statistics {
+    margin-top: 54px;
+}
+
+.not-selectedYOrM {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.total-state {
+    margin-top: 24px;
+}
+
+.total-state-text {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.fa-money {
+    font-size:36px; color:green;
+}
+
+.fa-euro {
+    font-size:36px; color: rgb(224, 165, 54)
+}

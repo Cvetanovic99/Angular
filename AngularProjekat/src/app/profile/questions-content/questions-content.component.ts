@@ -2,7 +2,7 @@ import { mergeMap, toArray } from 'rxjs/operators';
 import { Answer } from './../../models/answer';
 import { updateQuestion } from './../store/questions.actions';
 import { selectQuestions } from './../store/index';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { User } from './../../models/user';
 import { Question } from './../../models/question';
 import { Service } from './../../services/services';
@@ -30,6 +30,7 @@ export class QuestionsContentComponent implements OnInit {
   answersToDelete: Answer [];
   currentQuestion: Question;
   questionToDelete: Question;
+  testQuestions: Question [];
   
 
   constructor(private service: Service, private store: Store<State>) { }
@@ -37,7 +38,7 @@ export class QuestionsContentComponent implements OnInit {
   ngOnInit(): void {
     
     this.user = JSON.parse(localStorage.getItem('user'));
-    this.store.dispatch(fromActions.loadQuestionss());
+    this.store.dispatch(fromActions.loadQuestionss( { userId: this.user.id } ));
     this.loadQuestions();
 
     console.log(this.questionToDelete,this.answerToDelete)
@@ -45,8 +46,7 @@ export class QuestionsContentComponent implements OnInit {
 
   loadQuestions() {
 
-    this.questionsFromStore = this.store.pipe( select(selectQuestions) );
-
+    this.questionsFromStore = this.store.pipe( select(selectQuestions));
   }
 
   addNewQuestion(description: string, content: string, btnClose: HTMLButtonElement) {
@@ -82,7 +82,7 @@ export class QuestionsContentComponent implements OnInit {
       changes: newQuestion
     }
 
-    this.store.dispatch(fromActions.updateQuestion({question: updateQuestion}))
+    this.store.dispatch(fromActions.updateQuestion({ question: updateQuestion }))
 
   }
 

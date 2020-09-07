@@ -4,7 +4,8 @@ import { Update } from '@ngrx/entity';
 
 //Load questions
 export const loadQuestionss = createAction(
-  '[Questions] Load Questionss'
+  '[Questions] Load Questionss',
+  props<{ userId: any }>()
 );
 
 export const loadQuestionssSuccess = createAction(

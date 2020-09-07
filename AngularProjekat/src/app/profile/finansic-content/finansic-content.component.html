@@ -1,1 +1,138 @@
-<div *ngIf="finance">Finansic Content :)</div>
+<div class="container-fluid main-container" *ngIf="finance">
+    <div class="row">
+        <div class="col-lg-12"> 
+            <div class="card">
+                <div class="card-header">
+                  <span class="header-text">#FINANSICS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title card-text">Add today's state</h5>
+                  <div class="icons">
+                    <i class="fa fa-euro card-icon"></i>
+                    <i class="fa fa-money card-icon" style="color: green; margin-left: 15px"></i>
+                  </div>
+                  
+                  <div class="row input-row">
+                      <div class="col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" placeholder="income" class="form-control income-input" aria-label="Amount (to the nearest dollar)" #income>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" placeholder="spent" class="form-control spent-input" aria-label="Amount (to the nearest dollar)" #spent>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="div-btn">
+                  <button type="button" class="btn btn-outline-success" (click)="addFinansic(spent, income)">Add state</button>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+
+    <div class="row get-statistics-row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6 text-show-statistics-col">
+                            <p class="text-show-statistics-p">Show statistics for month</p>
+                        </div>
+                        <div class="col-lg-6 year-month-col">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Month:</label>
+                                        <select class="form-control" id="sel1" #month (click)="chageNotSelectedYOrM()">
+                                            <option>Some month</option>
+                                            <option *ngFor="let month of months"> {{ month }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="basic-url">Year:</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="basic-url" (click)="chageNotSelectedYOrM()" aria-describedby="basic-addon3" placeholder="Some year" #year>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="div-btn">
+                                <button type="button" class="btn btn-outline-info" (click)="showStatistics(month, year)">Show</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-danger not-selectedYOrM" role="alert" *ngIf="notSelectedYOrM">
+                        Choose month and year
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row table-statistics" *ngIf="statistics">
+        <div class="col-lg-12">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">Income</th>
+                    <th scope="col">Spent</th>
+                    <th scope="col">State</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let finansic of  finansicStatisticsForOneMonth | paginate: { itemsPerPage: 10, currentPage: p, id: 'finansic' }">
+                    <th scope="row">{{ finansic.date | date}}</th>
+                    <td>{{ finansic.income | currency:'EUR':true:'1.1-2'}}</td>
+                    <td>{{ finansic.spent | currency:'EUR':true:'1.1-2'}}</td>
+                    <td>{{ finansic.income - finansic.spent | currency:'EUR':true:'1.1-2'}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <pagination-controls (pageChange)="p = $event" responsive= "true" id="finansic"></pagination-controls>
+            </div>
+        </div>
+    </div>
+
+    <div class="row total-state" *ngIf="statistics">
+        <div class="col-lg-6">
+            <div class="total-state-text">
+                Monthly spent: {{ totalSpent | currency:'EUR':true:'1.1-2'}} 
+                <i class="fa fa-money" style="font-size:36px; color:green"></i>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="total-state-text">
+                Monthly income: {{ totalIncome | currency:'EUR':true:'1.1-2'}} 
+                <i class="fa fa-euro" style="font-size:36px; color: rgb(224, 166, 58)"></i>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="total-state-text">
+                Total state: {{ totalState | currency:'EUR':true:'1.1-2'}}
+            </div>
+        </div>
+    </div>
+</div>

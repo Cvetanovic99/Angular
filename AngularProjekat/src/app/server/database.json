@@ -372,9 +372,9 @@
     },
     {
       "topicId": 11,
-      "content": "Knjiga je veoma dobra",
+      "content": "Knjiga je veoma dobra 354",
       "essayTopic": "Esej za knjigu",
-      "date": "2020-25-7",
+      "date": "2020-7-8",
       "id": 14
     },
     {
@@ -459,6 +459,113 @@
       "content": "Dodajemo odgovor",
       "date": "2020-26-7",
       "id": 20
+    }
+  ],
+  "finansics": [
+    {
+      "id": 1,
+      "userId": 1,
+      "income": 354,
+      "spent": 354,
+      "date": "2020-09-06T21:27:31.129Z"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "income": 354,
+      "spent": 354,
+      "date": "2020-09-06T21:27:31.129Z"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "income": 354,
+      "spent": 354,
+      "date": "2020-09-06T21:27:31.129Z"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "income": 354,
+      "spent": 354,
+      "date": "2020-09-06T21:27:31.129Z"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "income": 354,
+      "spent": 354,
+      "date": "2020-09-06T21:27:31.129Z"
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "income": 354,
+      "spent": 354,
+      "date": "2020-09-06T21:27:31.129Z"
+    },
+    {
+      "id": 7,
+      "userId": 1,
+      "income": 354,
+      "spent": 354,
+      "date": "2020-09-06T21:27:31.129Z"
+    },
+    {
+      "id": 8,
+      "userId": 1,
+      "income": 354,
+      "spent": 354,
+      "date": "2020-09-06T21:27:31.129Z"
+    },
+    {
+      "id": 9,
+      "userId": 1,
+      "income": 354,
+      "spent": 354,
+      "date": "2020-09-06T21:27:31.129Z"
+    },
+    {
+      "id": 10,
+      "userId": 1,
+      "income": 354,
+      "spent": 354,
+      "date": "2020-09-06T21:27:31.129Z"
+    },
+    {
+      "userId": 1,
+      "income": 3,
+      "spent": 3,
+      "date": "2020-09-06T21:27:31.129Z",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "income": 10,
+      "spent": 15,
+      "date": "2020-09-06T21:34:38.794Z",
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "income": 354,
+      "spent": 354,
+      "date": "2020-09-06T23:05:31.569Z",
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "income": 354,
+      "spent": 354,
+      "date": "2020-09-07T00:46:19.313Z",
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "income": 354,
+      "spent": 354,
+      "date": "2020-09-07T01:07:50.811Z",
+      "id": 15
     }
   ]
 }

@@ -12,7 +12,7 @@
         <div class="col-lg-4" *ngFor="let topic of coupleLastTopics">
             <div class="card">
                 <div class="card-header">
-                  Date: {{ topic.date }}
+                  Date: {{ topic.date | date}}
                 </div>
                 <div class="card-body">
                   <h5 class="card-title"> {{ topic.title }} </h5>
@@ -38,7 +38,7 @@
         <div class="col-lg-4" *ngFor="let question of coupleLastQuestions">
             <div class="card">
                 <div class="card-header">
-                  Date: {{ question.date }}
+                  Date: {{ question.date | date}}
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">{{ question.description }}</h5>
@@ -61,16 +61,19 @@
         </div>
     </div>
     <div class="row content-row">
-        <div class="col-lg-4" *ngFor="let card of cards">
+        <div class="col-lg-4" *ngFor="let finansic of coupleLastFinansics">
             <div class="card">
                 <div class="card-header">
-                  {{ card.ime }}
+                  Date: {{ finansic.date | date }}
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <h5 class="card-title"> {{ finansic.income | currency:'EUR':true:'1.1-2'}}</h5>
+                  <p class="card-text"> {{ finansic.spent | currency:'EUR ':true:'1.1-2'}} </p>
                 </div>
             </div>
+        </div>
+        <div class="alert alert-danger col-lg-12" role="alert" *ngIf="!lastFinansics || lastFinansics.length == 0">
+          <h2 style="text-align:center"> #No added finansics </h2>
         </div>
     </div>
 </div>

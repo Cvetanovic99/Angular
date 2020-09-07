@@ -1,3 +1,4 @@
+import { Finansic } from './../../models/finansic';
 import { Question } from './../../models/question';
 import { User } from './../../models/user';
 import { Service } from './../../services/services';
@@ -15,28 +16,12 @@ export class LastUpdatesContentComponent implements OnInit {
   coupleLastTopics: Topic [];
   lastQuestions: Question [];
   coupleLastQuestions: Question [];
+  lastFinansics: Finansic [];
+  coupleLastFinansics: Finansic [];
 
   user: User;
   p: number = 1;
 
-  cards = [
-    {
-      ime: "Ime",
-      prezime: "Prezime",
-      treci: "Treci"
-    },
-    {
-      ime: "Ime2",
-      prezime: "Prezime2",
-      treci: "Treci354"
-    },
-    {
-      ime: "Ime3",
-      prezime: "Prezime3",
-      treci: "Treci354"
-    }
-
-]
   constructor(private service: Service) {}
 
   ngOnInit(): void {
@@ -68,6 +53,21 @@ export class LastUpdatesContentComponent implements OnInit {
         }
         else {
           this.coupleLastQuestions = this.lastQuestions;
+        }
+      },
+        error: err => { console.log(err); }
+    });
+
+    this.service.getFinansics(this.user.id).subscribe({
+      next: finansics => {
+
+        this.lastFinansics = finansics.reverse();
+        
+        if(this.lastFinansics.length > 3) { 
+          this.coupleLastFinansics = this.lastFinansics.slice(0,3);
+        }
+        else {
+          this.coupleLastFinansics = this.lastFinansics;
         }
       },
         error: err => { console.log(err); }
