@@ -18,7 +18,7 @@ export class WriteEsseyContentComponent implements OnInit {
   essays: Essay [];
   currentTopic: Topic;
   date = new Date();
-  essayForEdit: Essay = new Essay(1,1,"","",this.date);
+  essayForEdit: Essay = new Essay(1, 1, "", "", this.date);
   topicToDelete: Topic;
   essayToDelete: Essay;
   essaysToDelete: Essay [];
